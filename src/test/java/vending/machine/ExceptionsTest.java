@@ -3,6 +3,7 @@ package vending.machine;
 import org.junit.jupiter.api.Test;
 import vending.machine.exceptions.*;
 import vending.machine.products.Chocolate;
+import vending.machine.products.SaltySnack;
 import vending.machine.products.SoftDrink;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,7 +33,7 @@ public class ExceptionsTest {
     public void saltyCracksAllEatenExceptionTest() {
         Throwable thrown = assertThrows(SaltyCracksAllEatenException.class, () -> {
             ExceptionalVendingMachine vendingMachine = new ExceptionalVendingMachine(10, 5, 4);
-            vendingMachine.buy(new Chocolate(), 6);
+            vendingMachine.buy(new SaltySnack(), 5);
         });
         assertEquals(thrown.getMessage(), "Salty cracks all eaten!");
     }
